@@ -1,0 +1,16 @@
+{
+  "name": "kendo-ui",
+  "version": "2013.1.319",
+  "dependencies": {
+    "jquery": ">=1.8.2 <1.9.1"
+  },
+  "gitHead": "4889dde2987f033b3e09e4c8f8e1ebcbe71e249f",
+  "readme": "# Kendo UI Web GPLv3 For Bower\n\nIncludes Kendo UI Web, as well as typescript support.\n\n## Installation\n\n    bower install kendo\n\nIt is dependent on the 1.8.2 - 1.9.1 version of jQuery.\n\nInstalls into the **kendo** folder in the **components** directory.  Each widget file can be used independently.  The **kendo.web.all.min** file contains all widgets.\n\n    <script src=\"components/jquery/jquery.min.js\"></script>\n    <script src=\"components/kendo/js/kendo.web.all.min.js\"></script>\n\nThe **common** and at least one theme stylesheet are also required.\n\n    <link rel=\"stylesheet\" href=\"components/kendo/styles/kendo.common.min.css\">\n    <link rel=\"stylesheet\" href=\"components/kendo/styles/kendo.default.min.css\">\n\n*Kendo UI Web GPLv3 is governed under the [GNU General Public Licensee](http://opensource.org/licenses/GPL-3.0)*",
+  "readmeFilename": "README.md",
+  "_id": "kendo@2013.1.319",
+  "description": "Includes Kendo UI Web, as well as typescript support.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kendo-labs/bower-kendo-ui.git"
+  }
+}

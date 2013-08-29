@@ -1,0 +1,44 @@
+li.k-item:before {
+  content: "";
+}
+
+article.smaller ul.k-tabstrip-items {
+  font-size: 100%;
+}
+
+.k-info-colored {
+  margin: 5px;
+  padding: 5px;
+}
+
+.k-widget {
+  font-size: 16px;
+}
+
+.demo {
+  width: 400px;
+}
+
+.demo .k-textbox,
+.demo .k-widget {
+  width: 100%;
+}
+
+.pull-left {
+  float: left;
+}
+
+[data-config-contact] a {
+  color: #336699;
+}
+
+.spacer {
+  margin: 20px;
+  height: 10px;
+}
+
+.scroller {
+  height: 300px;
+  overflow: scroll;
+  width: 100%;
+}

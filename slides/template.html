@@ -1,0 +1,677 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" href="components/kendo-ui/styles/kendo.common.min.css">
+  <link rel="stylesheet" href="components/kendo-ui/styles/kendo.blueopal.min.css">
+  <link rel="stylesheet" href="theme/css/overrides.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/breaking.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/breaking.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Your Agenda</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>What Is A Packaged App And Why Should You Care</li>
+        <li>How I Got Here</li>
+        <li>How To Create A Packaged App</li>
+        <li>Play With Chrome Packaged App API's</li>
+        <li>The Seedy Underbelly Of Packaged Apps</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <h2>What Is A Packaged App?</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>You Already Know About</h2>
+      <h3>Extensions</h3>
+    </hgroup>
+    <article>
+      <p>Extensions are small software programs that can modify and enhance the functionality of the Chrome browser. You write them using web technologies such as HTML, JavaScript, and CSS.</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>You Probably Also Know About</h2>
+      <h3>Installable Web Apps</h3>
+    </hgroup>
+    <article class="vcenter">
+      <p>Many installable web apps are hosted apps—normal websites with a bit of extra metadata.</p>
+    </article>
+    <article class="flexbox vcenter">
+      <div class="build">
+        <div>
+          <q>A website with a way worse URL</q>
+          <div class="author">Alex Sexton</div>
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Packaged Apps</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <p>"Packaged apps deliver an experience as capable as a native app, <b>but as safe as a web page.</b>"</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>AKA Chrome As A Runtime</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>You build your application like a web app</li>
+        <li>Your application runs in Chrome</li>
+        <li>You have the DevTools</li>
+        <li>Chrome provides access to native API's</li>
+        <li>Your app runs anywhere that Chrome Runs</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Anywhere That Chrome Runs?</h2>
+    </hgroup>
+    <article>
+      <div class="build centered">
+        <img class="logo" src="images/windows_logo.png" alt="">
+        <img class="logo" src="images/apple_logo.png" alt="">
+        <img class="logo" src="images/chrome_os_logo.png" alt="">
+        <img class="logo" src="images/ubuntu_logo.png" alt="">
+        <img class="logo" src="images/android_logo.png" alt="">
+        <footer class="source">source: the internet</footer>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Does This Sound Familiar?</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/cordova_logo.png" alt="Description" title="Description">
+      <footer class="source">source: corodva.apache.org</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <h2>Why Should You Care?</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <div>
+        <q>There is currently only one platform on which native applications cannot be distinguished from those written entirely in JavaScript.</q>
+        <div class="author">
+          Brandon Satrom
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How Wise</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <div>
+        <q>The web platform will eventually be native everywhere, because the web always wins.</q>
+        <div class="author">
+          Me. Just Now.
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <div>
+        <q>The web is currently a very powerful tool in the hands of the losers.</q>
+        <div class="author">
+          Peter Paul-Koch (PPK)
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Speaking Of Yours Truly</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h3>How did I end up here?</h3> 
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Like A Bos</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <a href="http://www.youtube.com/embed/TaUyxQYtR30">Epic Abstract Video</a>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Which Spawned</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <a href="http://www.html5camera.com">HTML5 Camera</a>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Which Eventually Spawned</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/chromebook_me.png" alt="">
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <h2>Demo:</h2>
+      <h3>A Simple Chrome Packaged App</h3>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Chrome Packaged App API's</h2>
+      <h3>The web plus...</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Alarms</li>
+        <li>Bluetooth</li>
+        <li>Context Menus</li>
+        <li>File System</li>
+        <li>Idle</li>
+        <li>Media Galleries</li>
+        <li>Notifications</li>
+        <li>Power</li>
+        <li>Sockets</li>
+        <li>Text To Speech (tts)</li>
+        <li>Lots more...</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>File System Access</h2>
+      <h3><a href="http://developer.chrome.com/apps/fileSystem.html">chrome.fileSystem</a></h3>
+    </hgroup>
+    <article class="smaller">
+      <div data-role="tabstrip">
+        <ul>
+          <li class="k-state-active">Demo</li>
+          <li>Code</li>
+        </ul>
+        <div>
+          <div class="demo">
+            <p> </p>
+            <button class="k-button" id="picker" data-bind="click: fileSystem.click">Select Image</button>
+            <article class="flexbox vcenter">
+              <img src="" data-bind="attr: { src: fileSystem.selected }" alt="">
+            </article>  
+          </div>
+        </div>
+        <div>
+          <pre class="prettyprint" data-lang="javascript">
+chrome.fileSystem.chooseEntry({ 
+  type: &#039;openFile&#039;, 
+  <b>accepts: [{ extensions: [ &#039;jpg&#039;, &#039;jpeg&#039;, &#039;gif&#039;, &#039;png&#039; ] }]}</b>, 
+  function(entry) {
+    // this gives us a file entry. We just need to read it.
+    entry.file(function(file) {
+      // create a new file reader
+      var reader = new FileReader();
+      // create an event for when the file is done reading
+      reader.onloadend = function() {
+        // set the source of the image to the result (base64)
+        img = document.getElementById(&quot;demo-img&quot;);
+        img.src = this.result;
+      };
+      // read the file as a data URL
+      reader.readAsDataURL(file);
+  });
+});
+          </pre>
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Context Menus</h2>
+      <h3><a href="http://developer.chrome.com/apps/contextMenus.html">chrome.contextMenu</a></h3>
+    </hgroup>
+    <article class="smaller">
+      <div data-role="tabstrip">
+        <ul>
+          <li class="k-state-active">Demo</li>
+          <li>Code</li>
+        </ul>
+        <div>
+          <div class="demo">
+            <div>Item Text:</div>
+            <input class="k-textbox" type="text" data-bind="value: contextMenu.item" id="newMenuItem">
+            <p> </p>
+            <select data-role="dropdownlist" data-bind="value: contextMenu.type">
+              <option value="normal">Normal</option>
+              <option value="checkbox">Checkbox</option>
+              <option value="radio">Radio Button</option>
+              <option value="separator">Separator</option>
+            </select>
+            <p> </p>
+            <button class="k-button" data-bind="events: { click: contextMenu.add }">Add</button>
+            <div>
+              <br>
+              <div class="k-success-colored" data-bind="invisible: contextMenu.error">
+                <p data-bind="html: contextMenu.message"></p>
+              </div>
+              <div class="k-error-colored" data-bind="visible: contextMenu.error">
+                <p data-bind="html: contextMenu.message"></p>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div>
+          <pre class="prettyprint" data-lang="javascript">
+var message = document.getElementById(&quot;demo-context-msg&quot;);
+// add a new context menu item
+chrome.contextMenus.create({ id: title, title: title, type: type, }, function() {
+    // if there was an error, the runtime.lastError field will have a value
+    if (chrome.runtime.lastError) {
+      message.append(document.createTextNode(lastError.message));
+    }
+    else {
+      message.append(document.createTextNode(&quot;Item created with id of &#039;&quot; + title + &quot;&#039;&quot;));
+    }
+  }
+);
+<b>chrome.contextMenus.onClicked.addListener(function(item) {
+  console.log(&quot;You clicked &quot; + item.id);
+});</b>
+          </pre>
+        </div>   
+      </div>
+    </article>
+  </slide>
+
+  <!-- <slide class="hidden">
+    <hgroup>
+      <h2>Media Galleries</h2>
+    </hgroup>
+    <article>
+      <button data-bind="click: mediaGalleries.get">Get Galleries</button>
+      <div data-role="listview" data-bind="source: mediaGalleries.items" data-template="media-gallery-template">
+      </div>
+    </article>
+  </slide> -->
+
+  <slide>
+    <hgroup>
+      <h2>Notifications</h2>
+      <h3><a href="http://developer.chrome.com/apps/notifications.html">chrome.notifications</a></h3>
+    </hgroup>
+    <article class="smaller">
+      <div data-role="tabstrip">
+        <ul>
+          <li class="k-state-active">Demo</li>
+          <li>Code</li>
+        </ul>
+        <div>
+          <p>This API currently only works on Windows and ChromeOS</p>
+          <div class="demo">
+            <div>
+              <input class="k-input" type="text" placeholder="Title..." data-bind="value: notifications.title">
+            </div>
+            <p> </p>
+            <div>
+              <textarea class="k-textbox" id="message" rows="5" cols="60" class="k-input" placeholder="Message..." data-bind="value: notifications.message"></textarea>
+            </div>
+            <p> </p>
+            <div>
+              <button class="k-button" data-bind="events: { click: notifications.create }">Create Notification</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <pre class="prettyprint" data-lang="javascript">
+$.pkg.listen(&#039;/notifications/create&#039;, function(title, message) {
+  return chrome.notifications.create(&quot;1&quot; + notId++, {
+    type: &quot;basic&quot;,
+    title: title,
+    message: message,
+    iconUrl: &quot;icon_64.png&quot;
+  }, function() {});
+});
+          </pre>
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Idle Status</h2>
+      <h3><a href="http://developer.chrome.com/apps/idle.html">chrome.idle</a></h3>
+    </hgroup>
+    <article class="smaller">
+      <div data-role="tabstrip">
+        <ul>
+          <li class="k-state-active">Demo</li>
+          <li>Code</li>
+        </ul>
+        <div>
+          <h3>User Idle Status:</h3>
+          <p>The user was detected as "idle" after 15 seconds of inactivity.</p>
+          <div class="scroller">
+            <div id="listview" data-role="listview" data-bind="source: idle.events" data-template="idle-template"></div>
+          </div>
+        </div>
+        <div>
+          <pre class="prettyprint" data-lang="javascript">
+var idleState = document.getElementById("#idle-state");
+
+// the window can be set for as low as 15 seconds
+chrome.idle.setDetectionInterval(15);
+
+// when the window is broken, the state changes
+chrome.idle.onStateChanged.addListener(function(state) {
+  idleState.append(document.createTextNode(state));
+});
+          </pre>
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Bluetooth</h2>
+      <h3><a href="http://developer.chrome.com/apps/bluetooth.html">chrome.bluetooth</a></h3>
+    </hgroup>
+    <article class="smaller">
+      <div data-role="tabstrip">
+        <ul>
+          <li class="k-state-active">Demo</li>
+          <li>Code</li>
+        </ul>
+        <div>
+          <p> </p>
+          <button class="k-button" data-bind="click: bluetooth.get, invisible: bluetooth.discovering">Start Discovery</button>
+          <button class="k-button" data-bind="click: bluetooth.get, visible: bluetooth.discovering">Stop Discovery</button>
+          <span data-bind="visible: bluetooth.discovering"><b>Disclaimer:</b> You should stop this as soon as possible because it's eating your battery alive</span>
+          <p> </p>
+          <h3>Discovered Devices:</h3>
+          <div id="listview" data-role="listview" data-bind="source: bluetooth.devices" data-template="bluetooth-template"></div>
+        </div>
+        <div>
+          <pre class="prettyprint" data-lang="javascript">
+var devices = document.getElementbyId("#bluetooth-devices");
+chrome.bluetooth.startDiscovery({
+  deviceCallback: function(device) {
+    devices.append(document.createTextNode(device.name));
+  }
+}, function() {});
+          </pre>
+        </div>
+      </div>
+    </article>
+  </slide>
+
+    <slide>
+    <hgroup>
+      <h2>Bluetooth</h2>
+      <h3><a href="http://developer.chrome.com/apps/bluetooth.html">system.cpu</a></h3>
+    </hgroup>
+    <article class="smaller">
+      <div data-role="tabstrip">
+        <ul>
+          <li class="k-state-active">Demo</li>
+          <li>Code</li>
+        </ul>
+        <div>
+          <p> </p>
+          <button class="k-button" data-bind="click: system.cpu.get">Get CPU Info</button>
+          <p> </p>
+        </div>
+        <div>
+          <pre class="prettyprint" data-lang="javascript">
+var devices = document.getElementbyId("#bluetooth-devices");
+chrome.bluetooth.startDiscovery({
+  deviceCallback: function(device) {
+    devices.append(document.createTextNode(device.name));
+  }
+}, function() {});
+          </pre>
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <script type="text/x-kendo-templ" id="idle-template">
+    <div class="k-info-colored">
+      <span>#: time #</span>
+      <b>#: status #</b>
+    </div>
+  </script>
+
+  <script type="text/x-kendo-templ" id="bluetooth-template">
+    <div class="k-info-colored">
+      <b>#: name #</b>
+      <span>#: address #</span>
+    </div>
+  </script>
+
+  <slide>
+    <hgroup>
+      <h2>Text-To-Speech (tts)</h2>
+      <h3><a href="http://developer.chrome.com/apps/tts.html">chrome.tts</a></h3>
+    </hgroup>
+    <article class="smaller">
+      <div data-role="tabstrip">
+        <ul>
+          <li class="k-state-active">Demo</li>
+          <li>Code</li>
+        </ul>
+        <div>
+          <div class="demo">
+            <div>
+              <p> </p>
+              <div>Voice:</div>
+              <select data-role="dropdownlist" data-bind="source: tts.voices, value: tts.currentVoice" data-text-field="voiceName" data-value-field="voiceName"></select>
+            </div>
+            <div>
+              <p> </p>
+              <div>Utterance:</div>
+              <select data-role="combobox" class="combobox" data-bind="value: tts.selected">
+                <option>Hey, laser lips, your mama was a snow blower</option>
+                <option>No disassemble Number Five!</option>
+                <option>Number 5 stupid name... want to be Kevin or Dave!</option>
+                <option>Harder, better, faster, stronger</option>
+              </select>
+            </div>
+            <div>
+              <p> </p>
+              <div>Rate:</div>
+              <input min="0.1" max="10.0" data-role="numerictextbox" data-bind="value: tts.rate">
+            </div>
+            <div>
+              <p> </p>
+              <div>Pitch:</div>
+              <input data-role="numerictextbox" min="0" max="2" data-bind="value: tts.pitch">
+            </div> 
+            <div>
+              <p> </p>
+              <button data-bind="click: tts.say" class="k-button">Speak</button>
+            </div> 
+          </div>
+        </div>
+        <div>
+          <pre class="prettyprint" data-lang="javascript">
+// get all the available voices
+chrome.tts.getVoices(function(voices) {
+  // append the voices to the select
+});
+
+// then to speak
+chrome.tts.speak(message, { voiceName: voice, rate: rate, pitch: pitch });
+          </pre>
+        </div>
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <h2>If it sounds too good to be true,</h2><div class="build"><h2>it probably has a Content Security Policy.</h2></div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Remember This?</h2>
+    </hgroup>
+    <article>
+      <p>"Packaged apps deliver an experience as capable as a native app, <b>but as safe as a web page.</b>"</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>There Will Be ABSOLUTELY No...</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Inline execution of script</li>
+        <li>Use of <code>eval</code></li>
+        <li>Construction of <code>new Function</code></li>
+        <li>Displaying external content through iframe's
+          <ul>
+            <li>Although the <code>webview</code> is provided as an alternative</li>
+          </ul>
+        </li>
+        <li>More stuff that I can't remember...</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <h2>This Sucks</h2>
+    </article>
+  </slide> 
+
+  <slide>
+    <hgroup>
+      <h2>The Sandbox</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>A page in your app that is not restricted by CSP</li>
+        <li>There may be more than 1</li>
+        <li>They must be declared as sandbox pages in the manifest</li>
+        <li>They have no access to any native API's</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>My Solution</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h3>postMessage + pubsub = <a href="http://burkeholland.github.com/pkg">Pkg</a></h3>    
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <h2>Demo: Using Pkg To Build In The Sandbox</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <article class=""></article>
+
+  <slide>
+    <hgroup>
+      <h2>Thank You!</h2>
+    </hgroup>
+    <article class="flexbox" style="margin-top: 100px">
+      <span><img class="pull-left" src="images/breaking.png"></span>
+      <div>
+        <h2><a href="http://is.gd/chromeapps">http://is.gd/chromeapps</a> </h2>
+        <h2>Contact Me</h2>
+        <p data-config-contact></p>
+      </div>
+    </article>
+  </slide>
+
+  <script type="text/x-kendo-template" id="media-gallery-template">
+    <p>Item!</p>
+  </script>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+</body>
+</html>

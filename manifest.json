@@ -1,0 +1,33 @@
+{
+ "name": "Break Out Of The Browser With HTML5",
+ "description": "Building native desktop applications with Chrome and Packaged Apps",
+ "version": "1.0",
+ "manifest_version": 2,
+ "offline_enabled" : true,
+ "app": {
+  "background": {
+    "scripts": [ "background.js" ]
+  }
+ },
+ "permissions": [
+   "fileSystem",
+   "contextMenus",
+   "notifications",
+   "videoCapture",
+   "tts",
+   "idle", 
+   "fullscreen",
+   "storage",
+   "bluetooth",
+   { "mediaGalleries": ["read"], "mediaGalleries": ["read", "allAutoDetected"] }
+ ],
+  "sandbox": {
+    "pages": [ "index.html", "index1.html", "slides/template.html"]
+  },
+  "icons": {
+    "16": "icon_16.png",
+    "32": "icon_32.png",
+    "64": "icon_64.png",
+    "128": "icon_128.png"
+  }
+}
